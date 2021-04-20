@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="day.js"></script>
     <script>
-      function dayName(date) {
-        const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        return daysOfTheWeek[date.getDay()]
-      }
       let now = new Date();
-      alert(`Hello, world! Happy ${dayName(now)}`);
+      alert(greeting(now));
     </script>
     <title>Learn Enough JavaScript</title>
   </head>
