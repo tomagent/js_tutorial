@@ -1,42 +1,23 @@
-// Reverses a this.content
-function reverse(str) {
-  return Array.from(str).reverse().join("");
-}
-
-// Return an array of the username and domain for a standard email address
-function emailParts(email) {
-  let lowerCaseEmail = email.toLowerCase();
-  return lowerCaseEmail.split("@")
+// Adds `reverse` to all strings
+String.prototype.reverse = function reverse() {
+  return Array.from(this).reverse().join("");
 }
 
 // Defines a Phrase object.
 function Phrase(content) {
   this.content = content;
 
-  this.processor = function(string) {
-  return this.string.toLowerCase();
-​  }
-
   // Returns content processed for palindrome testing.
   this.processedContent = function processedContent() {
-   return this.processor(this.content);
- }
+    return this.content.toLowerCase();
+  }
 
-  // Returns true for a palindrome, false otherwise
+  // Returns true if the phrase is a palindrome, false otherwise.
   this.palindrome = function palindrome() {
-   return this.processedContent() === reverse(this.processedContent());
+    return this.processedContent() === this.processedContent().reverse();
   }
 }
 
-// Defines a TranslatedPhrase object.
-function TranslatedPhrase(content, translation) {
-  this.content = content;
-  this.translation = translation;
-
-  // Returns content processed for palindrome testing.
-  this.processedContent = function processedContent() {
-    return this.processor(this.translation);
-  }
+String.prototype.palindrome = function palindrome() {
+  return new Phrase(this).palindrome();
 }
-
-TranslatedPhrase.prototype = new Phrase();
