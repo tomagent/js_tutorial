@@ -21,3 +21,11 @@ function Phrase(content) {
 String.prototype.palindrome = function palindrome() {
   return new Phrase(this).palindrome();
 }
+
+String.prototype.blank = function blank() {
+  return /^\s*$/g.test(this)
+}
+
+Array.prototype.last = function last() {
+  return this.slice(-1)[0];
+}
